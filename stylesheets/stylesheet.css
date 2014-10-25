@@ -450,10 +450,6 @@ a:hover {
    src: url("../fonts/BebasNeue Regular.otf") format("opentype");
 }
 
-@font-face {
-   font-family: Gafata;
-   src: url("../fonts/Gafata-regular.ttf");
-}
 
 h1.title {
   margin: 30px 20px 10px;
