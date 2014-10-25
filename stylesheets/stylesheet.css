@@ -429,7 +429,7 @@ th {
 
 body {
   font-size: 15px;
-  font-family: Arial, Arial, Helvetica, sans-serif;
+  font-family: Gafata, Arial, Arial, Helvetica, sans-serif;
   line-height: 1.5;
   background: #D1D1D1;
 }
@@ -442,16 +442,23 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
   color: #90D355;
+}
+
+@font-face {
+   font-family:BebasNeue;
+   src: url("../fonts/BebasNeue Regular.otf") format("opentype");
+}
+
+@font-face {
+   font-family: Gafata;
+   src: url("../fonts/Gafata-regular.ttf");
 }
 
 h1.title {
   margin: 30px 20px 10px;
   font-size: 60px;
-  font-weight: bold;
-  font-style: italic;
-  font-family:Georgia, serif;
+  font-family: BebasNeue;
   text-align: center;
 }
 
@@ -715,12 +722,15 @@ footer .owner img {
 }
 
 footer .owner p {
-  font-family:Georgia, serif;
+  font-family:Gafata, Georgia, serif;
 }
 
 footer .owner p a {
   font-size: 16px;
-  font-style: italic;
+}
+
+footer .owner p a:hover {
+   text-decoration: none;
 }
 
 /* Markdown */
