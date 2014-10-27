@@ -2,14 +2,14 @@
    background-image: url('../images/profile.jpg');
    background-size: cover;
    border: 3px white solid;
-   border-radius: 5vw;
-   -webkit-border-radius: 5vw;
-   -moz-border-radius: 5vw;
+   border-radius: 64px;
+   -webkit-border-radius: 64px;
+   -moz-border-radius: 64px;
    display: block;
-   height: 10vw;
-   margin-left: 22vw;
-   margin-top: -3vh;
+   height: 128px;
+   margin-left: 290px;
+   margin-top: -10px;
    position: absolute;
-   width: 10vw;
+   width: 128px;
    z-index: 5;
 }
