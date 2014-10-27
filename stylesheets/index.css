@@ -13,3 +13,9 @@
    width: 128px;
    z-index: 5;
 }
+
+.project-name,
+.project-name:hover {
+   color: inherit;
+}
+
