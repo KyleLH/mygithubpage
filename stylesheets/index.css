@@ -19,3 +19,7 @@
    color: inherit;
 }
 
+.fa-ul li {
+   list-style-type: none;
+   margin-left: -3em;
+}
