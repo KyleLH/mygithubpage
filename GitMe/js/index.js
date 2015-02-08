@@ -55,7 +55,7 @@ app.controller ("MainDataController", function ($scope) {
             setTimeout(function () {
                 $('.graphs').show().css('opacity', 0);
                 $('.graphs').animate({opacity: 1, duration: 4000});
-            }, 5200);
+            }, 5700);
             console.log("Searching for "+name+"...");
             new_name(name);
         }, 400);
@@ -271,12 +271,18 @@ app.controller ("MainDataController", function ($scope) {
                 });
             });
             setTimeout(function() {
-                $('.ind-repo-0').text($scope.biggest_repos[0].name);
-                $('.ind-repo-0-bits').text(numberWithCommas($scope.biggest_repos[0].size));
-                $('.ind-repo-1').text($scope.biggest_repos[1].name);
-                $('.ind-repo-1-bits').text(numberWithCommas($scope.biggest_repos[1].size));
-                $('.ind-repo-2').text($scope.biggest_repos[2].name);
-                $('.ind-repo-2-bits').text(numberWithCommas($scope.biggest_repos[2].size));
+                if($scope.biggest_repos[0].size >= 0) {
+                    $('.ind-repo-0').text($scope.biggest_repos[0].name);
+                    $('.ind-repo-0-bits').text(numberWithCommas($scope.biggest_repos[0].size));
+                }
+                if($scope.biggest_repos[1].size >= 0) {
+                    $('.ind-repo-1').text($scope.biggest_repos[1].name);
+                    $('.ind-repo-1-bits').text(numberWithCommas($scope.biggest_repos[1].size));
+                }
+                if ($scope.biggest_repos[2].size >= 0) {
+                    $('.ind-repo-2').text($scope.biggest_repos[2].name);
+                    $('.ind-repo-2-bits').text(numberWithCommas($scope.biggest_repos[2].size));
+                }
                 $('.num-lines').text(numberWithCommas($scope.lines));
             }, 2000);
 
@@ -288,8 +294,8 @@ app.controller ("MainDataController", function ($scope) {
                 datasets: [
                     {
                         label: "Days of the week",
-                        fillColor: "rgba(220,220,220,0.5)",
-                        strokeColor: "rgba(220,220,220,0.8)",
+                        fillColor: "#4EBAEE",
+                        strokeColor: "#4EBAEE",
                         highlightFill: "rgba(220,220,220,0.75)",
                         highlightStroke: "rgba(220,220,220,1)",
                         data: $scope.weekday_avgs
@@ -299,7 +305,7 @@ app.controller ("MainDataController", function ($scope) {
 
             var ctx = document.getElementById("weekday-dist").getContext("2d");
             var myBarChart = new Chart(ctx).Bar(data, bar_options)
-        }, 8000);
+        }, 8500);
 
     };
     //new_name("echiou");
@@ -352,7 +358,7 @@ var bar_options = {
     scaleShowHorizontalLines: true,
 
     //Boolean - Whether to show vertical lines (except Y axis)
-    scaleShowVerticalLines: true,
+    scaleShowVerticalLines: false,
 
     //Boolean - If there is a stroke on each bar
     barShowStroke : true,
