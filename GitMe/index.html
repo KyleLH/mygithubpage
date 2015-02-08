@@ -1,0 +1,84 @@
+<html ng-app="GitMeApp">
+<head>
+    <title>GitMe</title>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/progressbar.js/dist/progressbar.min.js"></script>
+    <script src="js/Chart-Options.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body ng-controller="MainDataController">
+<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+
+<div class='hide-this'>
+<div id='loader'></div>
+<div class='loader'>Loading GitHub Data...</div>
+</div>
+
+<div class="container splash">
+
+<span class="logo" >GitMe</span>
+<span class="headstuff">An amazingly simple analysis of github statistics</span>
+
+<div class="input-group col-md-6 big-search">
+    <input type="text" class="form-control searchbar search-text">
+    <span class="input-group-btn searchbar">
+        <button class="btn btn-success btn-search searchbar" type="button" ng-click="search()">
+            Go
+        </button>
+    </span>
+</div>
+
+<img src="assets/img/Octocat.png" class="OCTOCAT"></img>
+
+</div>
+
+<div class='graphs'>
+
+    <div class="top-header">
+        <img class="prof" src=""></img>
+        <div class="full-name"></div>
+        <div>
+            <span class="repos">
+                <div class="num-repos"></div>
+                repositories
+            </span>
+            <span class="commits">
+                <div class="num-commits"></div>
+                commits
+            </span>
+            <span class="lines">
+                <div class="num-lines"></div>
+                bytes of code
+            </span>
+        </div>
+    </div>
+
+    <div>
+        <span class="biggest-repos">
+            <div class="big-title">Largest Repositories</div>
+            <div class='repo-0'><span class="ind-repo-0"></span><span class="ind-repo-0-bits"></span></div>
+            <div class='repo-1'><span class="ind-repo-1"></span><span class="ind-repo-1-bits"></span></div>
+            <div class='repo-2'><span class="ind-repo-2"></span><span class="ind-repo-2-bits"></span></div>
+        </span>
+        <span class="languages-doughnut">
+            <div class='doughnut-head' width="300">Languages</div>
+            <div><canvas id="languages-doughnut" width="300" height="300"></canvas></div>
+        </span>
+    </div>
+
+    <div>
+        <canvas id="weekday-dist" width="1000" height="400" style="margin: 10vh 15vw;"></canvas>
+    </div>
+
+</div>
+
+
+</body>
+</html>
