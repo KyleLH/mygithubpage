@@ -19,6 +19,11 @@ circle = new ProgressBar.Circle('#loader', {
         bar.setText((bar.value() * 100).toFixed(0));
     }
 });
+$(window).on('resize orientationChange', function (event) {
+    console.log($('body').height());
+    $('.backg').css('height', $('.splash').height());
+});
+
 $('.hide-this').hide();
 
 
@@ -29,6 +34,7 @@ app.controller ("MainDataController", function ($scope) {
     $scope.home = function () {
         url = window.location.href;
         if (/#/.test(url)) {
+            console.log("testing");
             window.location = url.substr(0, url.search("#"));
         }
     };
@@ -42,34 +48,41 @@ app.controller ("MainDataController", function ($scope) {
 
 
     $scope.search = function (name) {
-            if (name === undefined) {
-                $scope.name = $(".search-text")[0].value;
-                window.location = window.location.href + "#" + $scope.name.toLowerCase();
-            } else {
-                $scope.name = name
-            }
-            $('.splash').slideUp(1000, function () {
-                $('.hide-this').show();
-                $('.loader').css('opacity', 0);
-                $('.loader').animate({opacity: 1, duration: 500})
-            });
-            $('.logo').animate({opacity: 0});
-            $('.headstuff').animate({opacity:0});
-            $('.big-search').animate({opacity:0});
-            $('.OCTOCAT').animate({opacity:0});
-            circle.animate(
-                1,
-                {
-                    easing: "easeInOutExpo"
-                },
-                function () {
-                    $('.hide-this').hide('slow', function () {
-                        $('.graphs').show().css('opacity', 0);
-                        $('.graphs').animate({opacity: 1, duration: 4000});
-                    });
+        if (name === undefined) {
+            $scope.name = $(".search-text")[0].value;
+            window.location = window.location.href + "#" + $scope.name.toLowerCase();
+        } else {
+            $scope.name = name
+        }
+        $.ajax('https://api.github.com/users/'+$scope.name+'/repos'+"?client_id="+client_id
+            +"&client_secret="+client_secret).done(function(data, status, res) {
+            if(status === "success") {
+                $('.splash').slideUp(1000, function () {
+                    $('.hide-this').show();
+                    $('.loader').css('opacity', 0);
+                    $('.loader').animate({opacity: 1, duration: 500})
                 });
-            console.log("Searching for "+$scope.name+"...");
-            new_name($scope.name);
+                $('.logo').animate({opacity: 0});
+                $('.headstuff').animate({opacity:0});
+                $('.big-search').animate({opacity:0});
+                $('.OCTOCAT').animate({opacity:0});
+                $('.backg').animate({opacity: 0});
+                circle.animate(
+                    1,
+                    {
+                        easing: "easeInOutExpo"
+                    },
+                    function () {
+                        $('.hide-this').animate({opacity: 0}, function () {
+                            $(this).hide();
+                            $('.graphs').show().css('opacity', 0);
+                            $('.graphs').animate({opacity: 1, duration: 4000});
+                        });
+                    });
+                console.log("Searching for "+$scope.name+"...");
+                new_name($scope.name);
+            }
+        });
     };
 
     $scope.name = "";
@@ -121,10 +134,8 @@ app.controller ("MainDataController", function ($scope) {
         $.ajax("https://api.github.com/users/"+$scope.name+"?client_id="+client_id+"&client_secret="+client_secret).done(function (data) {
             $scope.full_name = data.name;
             $scope.profile_url = data.avatar_url;
-            setInterval(function() {
-                $('.full-name').text($scope.full_name);
-                $('.prof').attr('src', $scope.profile_url);
-            }, 5200);
+            $('.full-name').text($scope.full_name);
+            $('.prof').attr('src', $scope.profile_url);
         });
         $.ajax('https://api.github.com/users/'+$scope.name+"?client_id="+client_id+"&client_secret="+client_secret).done(function (data) {
             $scope.num_repos = data['public_repos'];
@@ -134,9 +145,21 @@ app.controller ("MainDataController", function ($scope) {
             $scope.repos = data;
 
             $scope.repos.forEach(function (repo, repo_num, arr) {
-                $scope.stars += repo['stargazers_count'];
-                $scope.watchers += repo['watchers_count'];
-                $scope.open_issues += repo['open_issues_count'];
+                $scope.stars += repo.stargazers_count;
+                $scope.watchers += repo.watchers_count;
+                $scope.open_issues += repo.open_issues_count;
+                try {
+                    $scope.biggest_repos.forEach(function (el, i, arr) {
+                        if(repo.size > el['size']) {
+                            $scope.biggest_repos.splice(i, 0, {'name': repo.name, 'size': repo.size});
+                            $scope.biggest_repos.pop();
+                            throw BreakException;
+                        }
+                    });
+                } catch (e) {
+                    if (e!=BreakException) throw e;
+                }
+
                 $.ajax({
                     url: 'https://api.github.com/repos/'+$scope.name+'/'+repo['name']+"/languages"+"?client_id="+client_id+"&client_secret="+client_secret
                 }).done(function (data) {
@@ -148,17 +171,17 @@ app.controller ("MainDataController", function ($scope) {
                         $scope.languages[el] += data[el];
                         $scope.counter += data[el];
                     });
-                    try {
-                        $scope.biggest_repos.forEach(function (el, i, arr) {
-                            if($scope.counter > el['size']) {
-                                $scope.biggest_repos.splice(i, 0, {'name': repo['name'], 'size': $scope.counter});
-                                $scope.biggest_repos.pop();
-                                throw BreakException;
-                            }
-                        });
-                    } catch (e) {
-                        if (e!=BreakException) throw e;
-                    }
+                    // try {
+                    //     $scope.biggest_repos.forEach(function (el, i, arr) {
+                    //         if($scope.counter > el['size']) {
+                    //             $scope.biggest_repos.splice(i, 0, {'name': repo['name'], 'size': $scope.counter});
+                    //             $scope.biggest_repos.pop();
+                    //             throw BreakException;
+                    //         }
+                    //     });
+                    // } catch (e) {
+                    //     if (e!=BreakException) throw e;
+                    // }
 
                     if($scope.biggest_repos[0].size >= 0) {
                         $('.ind-repo-0').text($scope.biggest_repos[0].name);
@@ -174,20 +197,17 @@ app.controller ("MainDataController", function ($scope) {
                     }
                     $.ajax('https://api.github.com/repos/'+$scope.name+'/'+repo['name']+'/stats/contributors'+"?client_id="+client_id+"&client_secret="+client_secret).done(function(data) {
                         data.forEach(function(el, i, arr) {
-                            if(el.author.login.toLowerCase() == $scope.name) {
+                            if(el.author.login.toLowerCase() === $scope.name) {
                                 el.weeks.forEach(function (week, j, week_arr) {
                                     $scope.lines += week.a;
-                                    $scope.lines -= week.d;
+                                    // $scope.lines -= week.d;
                                 });
                             } else {
-                                if (el.author != null) {
-                                    if (!(el.author.login in $scope.peers)) {
-                                        $scope.peers[el.author.login] = 0;
-                                        el.weeks.forEach(function (week, j, week_arr) {
-                                            $scope.peers[el.author.login] += week.a;
-                                            $scope.peers[el.author.login] -= week.d;
-                                        });
-                                    }
+                                if (el.author != null && !(el.author.login in $scope.peers)) {
+                                    $scope.peers[el.author.login] = 0;
+                                    el.weeks.forEach(function (week, j, week_arr) {
+                                        $scope.peers[el.author.login] += week.a;
+                                    });
                                 }
                             }
                         });
@@ -261,11 +281,15 @@ app.controller ("MainDataController", function ($scope) {
         });
     };
 
-    if (/#/.test(url)){
-        console.log(url);
+    if (/#.+/.test(url)){
         $scope.name = url.match(/#(\w+)/)[1];
-        console.log($scope.name);
-        $scope.search($scope.name);
+        $.ajax('https://api.github.com/users/'+$scope.name+'/repos'+"?client_id="+client_id
+            +"&client_secret="+client_secret).done(function(data, status, res) {
+            if(status === "success") {
+                $scope.search($scope.name);
+                
+            }
+        });
     }
 });
 
