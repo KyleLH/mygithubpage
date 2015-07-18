@@ -1,107 +1,60 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Kyle Holzinger</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-  <link rel="stylesheet" href="stylesheets/index.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-  <title>Mygithubpage</title>
-  <meta name="description" content="">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <link rel="stylesheet" href="index.css" />
 </head>
-
 <body>
 
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Kyle Holzinger</h1>
-      <p class="location">-71.073094,17°W 42.359855°N</p>
-    </header>
-    <div class="profile-circular"></div>
-    <div id="container">
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/KyleLH/mygithubpage" style="visibility: hidden;">Github</a>
+<div class="column-1">
+<div class="profile"></div>
+<div class="name">
+    Kyle Holzinger
+</div>
+
+<hr class="divider" />
+
+<div class="navigation">
+    <a class="link" href="#home"><div class="home link"><div class="nav-arrow">></div> <div class="nav-link">Home</div></div></a>
+    <a class="link" href="#projects"><div class="projects link"><div class="nav-arrow">></div>  <div class="nav-link">Projects</div></div></a>
+    <a class="link" href="#experience"><div class="experience link"><div class="nav-arrow">></div> <div class="nav-link">Experience</div></div></a>
+    <a class="link" href="#education"><div class="education link"><div class="nav-arrow">></div> <div class="nav-link">Education</div></div></a>
+    <a class="link" href="#contact"><div class="contact link"><div class="nav-arrow">></div> <div class="nav-link">Contact</div></div></a>
+</div>
+
+
+<div class="social-wrapper">
+<div class="social">
+<a target="_blank" href="https://www.facebook.com/Kyle.Holzinger"><i class="fa fa-facebook fa-2x"></i></a>
+<a target="_blank" href="https://twitter.com/kyleholzinger"><i class="fa fa-twitter fa-2x"></i></a>
+<a target="_blank" href="https://github.com/KyleLH"><i class="fa fa-github fa-2x"></i></a>
+</div>
+</div>
+</div>
+<div class="column-2">
+    
+    <div class="content-card" id="GitMeCard">
+        <a href="http://kylelh.me/GitMe/" target="_blank"><img class="gitmeMock" src="assets/images/GitMe.png" /></a>
+        <div class="card-description">
+            <div class="card-headline">GitMe</div>
+            <div class="card-jobs">Front-end Development · Interaction Design</div>
         </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <h3>
-<a name="Profile" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Profile</h3>
-
-<p>A junior at Boston University, Kyle Holzinger is interested in machine learning, artificial intelligence, and web development, as well as rock climbing, sailing, and tennis.</p>
-
-<!--
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
--->
-<h3>
-<a name="projects" class="anchor" href="projects"><span class="octicon octicon-link"></span></a>Projects</h3>
-
-<p>
-<strong><a class="project-name" href="https://github.com/KyleLH/muxpeak" target="_blank">Muxpeak</a>
-</strong><br>A webapp that allows groups of users to play music
-simultaneously from their respective speakers, creating an aggregate speaker system.
-<br>
-<strong><a class="project-name" href="https://github.com/KyleLH/bu_tweetbus" target="_blank">
-BU Tweet Bus</a></strong><br>A server written in <a href="http://nodejs.org/">
-Node.js</a> that tweets whenever the BU BUS passes a bus stop.
-<br>
-<strong><a class="project-name" href="https://github.com/KyleLH/neuralnetwork" target="_blank">
-Neural Network</a></strong><br>A program that takes an input corpus with each
-word tagged with its part of speech, and accurately tags the parts of speech of 
-any other input corpus.
-</p>
-
-<h3><a name="courses" class="anchor" href="#courses"><span class="octicon octicon-link"></span></a>Course List</h3>
-
-<ul class="fa-ul">
-   <li><i class="fa-li fa fa-angle-right"></i>Intro to Computer Science I/II</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Geometric Algorithms</li>
-   <li>C<i class="fa-li fa fa-angle-right"></i>ombinatorical Structures</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Computer Systems</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Concepts of Programming Languages</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Introduction to Artificial Intelligence</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Introduction to Databases</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Discrete Algebra</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Probability in Computing</li>
-   <li><i class="fa-li fa fa-angle-right"></i>Introduction to Algorithms</li>
-</ul>
-
-<h3>
-<a name="contact-me" class="anchor" href="#contact-me"><span class="octicon octicon-link"></span></a>Contact Me</h3>
-
-<p>Email me at <a href="mailto:kyle@holzingers.com">kyle@holzingers.com</a></p>
-        </article>
-      </div>
     </div>
-    <footer>
-    <div class="owner">
-      <p>Github: <a href="https://github.com/KyleLH">KyleLH</a></p>
+    <div class="content-card" id="CollabCard">
+        <a href="http://github.com/KyleLH/Collab" target="_blank"><img class="collabMock" src="assets/images/Collab.png"></a>
+        <div class="card-description">
+            <div class="card-headline">Collab.vim</div>
+            <div class="card-jobs">Back-end Development · Vim Integration · Infrastructure Manager</div>
+        </div>
+    </div>
 
+</div>
 
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <p class="name"></p>
-  </div>
-
-  
 </body>
 </html>

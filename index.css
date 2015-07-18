@@ -1,0 +1,151 @@
+
+html {
+	margin: 0 0;
+	min-width: calc(170px*100/21);
+}
+
+body {
+	position: relative;
+}
+
+.card-description {
+	text-align: left;
+}
+
+.card-headline {
+	font-family: Open Sans;
+	font-size: 1.8em;
+	font-weight: 400;
+	padding: 0 0;
+	padding-top: 20px;
+	color: #393939;
+}
+
+.card-jobs {
+	color: #5F5F5F;
+	font-family: Merriweather;
+	padding: 0 5px;
+	padding-bottom: 20px;
+}
+
+.collabMock {
+	height: auto;
+	width: 100%;
+}
+
+.content-card {
+	padding: 10px 10%;
+	padding-bottom: 20px;
+}
+
+.column-1 {
+	background-color: #020029;
+	font-family: Roboto;
+	font-weight: 100;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 21%;
+	min-width: 170px;
+	z-index: 1;
+}
+
+.column-2 {
+	float: right;
+	font-weight: 400;
+	height: 100%;
+	padding-top: 30px;
+	position: relative;
+	text-align: center;
+	width: 79%;
+	z-index: 0;
+}
+
+.divider {
+	border: 0;
+	border-top: 1px solid #2D2946;
+	display: block;
+	height: 1px;
+	width: calc(100% - 40px);
+}
+
+
+.gitmeMock {
+	height: auto;
+	width: 100%;
+}
+
+i {
+	color: #A5AAB9;
+}
+
+.link {
+	padding: 10px 0;
+	text-decoration: none;
+	color: inherit;
+}
+
+.name {
+	color: #A5AAB9;
+	text-align: center;
+	font-size: 1.3em;
+	margin-bottom: 20px;
+}
+
+.nav-arrow {
+	display: inline-block;
+	color: #46406E;
+}
+
+.nav-link {
+	display: inline-block;
+	position: absolute;
+	left: 20px;
+    transition: left, color;
+    transition-timing-function: ease-out;
+    transition-duration: 140ms;
+}
+
+.link:hover .nav-link{
+	color: #CCD2E5;
+	left: 27px;
+}
+
+.navigation {
+	position: relative;
+	color: #A5AAB9;
+	padding: 10px 5px;
+}
+
+.profile {
+	background-image: url("assets/images/profile.jpg");
+	background-repeat: no-repeat;
+	background-size: 90px 90px;
+	border: 3px solid #2D2946;
+	border-radius: 50%;
+	height: 90px;
+	margin: 20px auto;
+	width: 90px;
+}
+
+.social {
+	bottom: 0;
+	padding: 10px 20px;
+	position: absolute;
+	text-align: center;
+	width: calc(100% - 40px);
+}
+
+.fa-facebook, .fa-twitter, .fa-github {
+	text-decoration: none;
+	color: #A5AAB9;
+}
+
+.fa-facebook {
+	float: left;
+}
+
+.fa-github {
+	float: right;
+}
