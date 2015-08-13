@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Kyle Holzinger</title>
+    <script type="text/javascript" src="index.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -21,8 +22,8 @@
 <hr class="divider" />
 
 <div class="navigation">
-    <a class="link" href="#home"><div class="home link"><div class="nav-arrow">></div> <div class="nav-link">Home</div></div></a>
-    <a class="link" href="#projects"><div class="projects link"><div class="nav-arrow">></div>  <div class="nav-link">Projects</div></div></a>
+    <a class="link" onclick="showBlog()" href="#blog"><div class="blog link"><div class="nav-arrow">></div> <div class="nav-link">Blog</div></div></a>
+    <a class="link" onclick="showProjects()" href="#projects"><div class="projects link"><div class="nav-arrow">></div>  <div class="nav-link">Projects</div></div></a>
     <a class="link" href="Resume.pdf"><div class="resume link"><div class="nav-arrow">></div>  <div class="nav-link">Resume</div></div></a>
     <a target="_blank" class="link" href="mailto:holzinger.kyle@gmail.com"><div class="contact link"><div class="nav-arrow">></div> <div class="nav-link">Contact</div></div></a>
 </div>
@@ -38,22 +39,30 @@
 </div>
 <div class="column-2">
     
-    <div class="content-card" id="GitMeCard">
-        <a href="http://kylelh.me/GitMe/" target="_blank"><img class="gitmeMock" src="assets/images/GitMe.png" /></a>
-        <div class="card-description">
-            <div class="card-headline">GitMe</div>
-            <div class="card-jobs">Front-end Development - Interaction Design</div>
-        </div>
+
+    <div id="Blog" class="active">
+        <script src="http://customosx.tumblr.com/js"></script>
     </div>
-    <div class="content-card" id="CollabCard">
-        <a href="http://github.com/KyleLH/Collab" target="_blank"><img class="collabMock" src="assets/images/Collab.png"></a>
-        <div class="card-description">
-            <div class="card-headline">Collab.vim</div>
-            <div class="card-jobs">Back-end Development - Vim Integration - Infrastructure Manager</div>
+
+    <div id="Projects" class="none">
+        <div class="content-card" id="GitMeCard">
+            <a href="http://kylelh.me/GitMe/" target="_blank"><img class="gitmeMock" src="assets/images/GitMe.png" /></a>
+            <div class="card-description">
+                <div class="card-headline">GitMe</div>
+                <div class="card-jobs">Front-end Development - Interaction Design</div>
+            </div>
+        </div>
+        <div class="content-card" id="CollabCard">
+            <a href="http://github.com/KyleLH/Collab" target="_blank"><img class="collabMock" src="assets/images/Collab.png"></a>
+            <div class="card-description">
+                <div class="card-headline">Collab.vim</div>
+                <div class="card-jobs">Back-end Development - Vim Integration - Infrastructure Manager</div>
+            </div>
         </div>
     </div>
 
 </div>
+
 
 </body>
 </html>
