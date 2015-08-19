@@ -91,6 +91,21 @@ i {
 	color: inherit;
 }
 
+.link > div .nav-link::after {
+	content: "<";
+	display: inline-block;
+	margin-left: 0px;
+	opacity: 0;
+	transition: all ease 300ms;
+}
+
+.link:hover > div .nav-link::after {
+	content: "<";
+	color: #46406E;
+	margin-left: 10px;
+	opacity: 1;
+}
+
 .name {
 	color: #A5AAB9;
 	text-align: center;
@@ -179,13 +194,21 @@ i {
 
 #Blog ol > li {
 	background-color: #fff;
-    border: 1px solid rgba(0,0,0,.08);
+    border: 1.5px solid rgba(0,0,0,.08);
     border-radius: 4px;
 	display: inline-block;
 	padding: 20px;
 	margin-bottom: 70px;
 	text-align: left;
 	width: 65%;
+}
+
+#Blog ol > li {
+	text-align: center;
+}
+
+#Blog ol > li p, #Blog ol > li pre, #Blog ol > li .tumblr_title {
+	text-align: left;
 }
 
 #Blog .tumblr_title {
