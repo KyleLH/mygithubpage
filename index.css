@@ -13,6 +13,13 @@ body {
 	opacity: 1;
 }
 
+.c2-title {
+	width: 65%;
+	font-size: 3.5em;
+	font-family: Gibson;
+	display: inline-block;
+}
+
 .card-description {
 	text-align: left;
 }
@@ -39,7 +46,9 @@ body {
 }
 
 .content-card {
-	padding: 10px 10%;
+	display: inline-block;
+	padding: 10px 0;
+	width: 65%;
 	padding-bottom: 20px;
 }
 
@@ -193,6 +202,7 @@ i {
 }
 
 #Blog ol > li {
+	box-sizing: border-box;
 	background-color: #fff;
     border: 1.5px solid rgba(0,0,0,.08);
     border-radius: 4px;
