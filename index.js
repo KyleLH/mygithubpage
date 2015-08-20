@@ -7,6 +7,8 @@ function showBlog() {
 	}
 
 	active.classList.remove("active");
+	document.getElementsByClassName("active-link")[0].classList.remove("active-link");
+	document.getElementsByClassName("blog")[0].classList.add("active-link");
 	setTimeout(function () {
 		active.classList.add("none");
 		blog.classList.remove("none");
@@ -25,6 +27,8 @@ function showProjects() {
 	}
 
 	active.classList.remove("active");
+	document.getElementsByClassName("active-link")[0].classList.remove("active-link");
+	document.getElementsByClassName("projects")[0].classList.add("active-link");
 	setTimeout(function () {
 		active.classList.add("none")
 		projects.classList.remove("none");

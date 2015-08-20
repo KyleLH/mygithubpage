@@ -108,7 +108,8 @@ i {
 	transition: all ease 300ms;
 }
 
-.link:hover > div .nav-link::after {
+
+.active-link > div.nav-link::after {
 	content: "<";
 	color: #46406E;
 	margin-left: 10px;
@@ -136,7 +137,7 @@ i {
     transition-duration: 140ms;
 }
 
-.link:hover .nav-link{
+.link:hover .nav-link, .active-link .nav-link{
 	color: #CCD2E5;
 	left: 27px;
 }
@@ -242,6 +243,11 @@ i {
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
+}
+
+#Blog .tumblr_body img {
+	max-width: 100%;
+	height: auto;
 }
 
 .none {
