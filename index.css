@@ -301,7 +301,7 @@ i {
     display: inline-block;
 }
 
-@media (max-width: 1850px) {
+@media (max-width: 750px) {
     #column-1 {
         width: 100%;
         left: -100%;
