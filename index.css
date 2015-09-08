@@ -313,6 +313,10 @@ i {
         left: 0;
     }
 
+    #column-2 {
+        font-size: 1.8em;
+    }
+
     #Blog ol > li {
         width: 85%;
     }
