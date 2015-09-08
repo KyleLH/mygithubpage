@@ -14,6 +14,7 @@ function showBlog() {
 		blog.classList.remove("none");
 		setTimeout(function () {
 			blog.classList.add("active");
+			toggleMenu();
 		}, 5);
 	}, 500);
 }
@@ -34,6 +35,28 @@ function showProjects() {
 		projects.classList.remove("none");
 		setTimeout(function () {
 			projects.classList.add("active");
+			toggleMenu();
 		}, 5);
 	}, 500);
+}
+
+function toggleMenu() {
+	var nav = document.getElementById("column-1");
+	var navButton = document.getElementById("menu-button");
+	var content = document.getElementById("column-2");
+	if(nav.classList.contains("show")) {
+		nav.classList.remove("show");
+		navButton.classList.remove("show");
+		content.classList.remove("defocus");
+		setTimeout(function () {
+			content.onclick = function () {};
+		}, 0);
+	} else {
+		nav.classList.add("show");
+		navButton.classList.add("show");
+		content.classList.add("defocus");
+		setTimeout(function () {
+			content.onclick = toggleMenu;
+		}, 0);
+	}
 }
