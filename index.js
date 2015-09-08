@@ -41,7 +41,6 @@ function showProjects() {
 }
 
 function toggleMenu() {
-	console.log("toggle");
 	var nav = document.getElementById("column-1");
 	var navButton = document.getElementById("menu-button");
 	var content = document.getElementById("column-2");
