@@ -197,7 +197,7 @@ i {
 
 #Projects {
 	opacity: 0;
-	transition: opacity 500ms ease;
+	transition: opacity 250ms ease;
 }
 
 .social {
@@ -226,7 +226,7 @@ i {
 	opacity: 0;
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
-	transition: opacity 500ms ease;
+	transition: opacity 250ms ease;
 }
 
 #Blog a {
