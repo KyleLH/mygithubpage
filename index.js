@@ -41,6 +41,7 @@ function showProjects() {
 }
 
 function toggleMenu() {
+	console.log("toggle");
 	var nav = document.getElementById("column-1");
 	var navButton = document.getElementById("menu-button");
 	var content = document.getElementById("column-2");
@@ -49,6 +50,8 @@ function toggleMenu() {
 		navButton.classList.remove("show");
 		content.classList.remove("defocus");
 		setTimeout(function () {
+			navButton.onClick = toggleMenu;
+			navButton.innerHTML = " Menu";
 			content.onclick = function () {};
 		}, 0);
 	} else {
@@ -56,6 +59,8 @@ function toggleMenu() {
 		navButton.classList.add("show");
 		content.classList.add("defocus");
 		setTimeout(function () {
+			navButton.onClick = function () {};
+			navButton.innerHTML = "";
 			content.onclick = toggleMenu;
 		}, 0);
 	}
